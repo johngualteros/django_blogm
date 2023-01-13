@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'partials/layout.html' %}
+
+{% block title %} <title>Blogm | Home</title> {% endblock %}
+
+{% block content %}
+    {% include 'partials/menu.html' %}
+    <section class="w-full h-screen flex justify-center pl-36 pr-36 items-center">
+        <div class="w-6/12 max-md:bg-sky-300">
+            <h1 class="text-6xl text-green-500 font-bold">Blogm The modern blog for programmers
+            </h1>
+            <h2 class="text-black my-6 text-2xl font-bold">If you like create a new post first you need Sign in</h2>
+            <p class="text-zinc-900 text-xl">You can follow this link for
+                <a href="{% url 'register' %}"><button class="py-1 font-bold px-4 bg-green-400 text-sm ml-2 rounded-lg hover:bg-green-500">Start Right Now</button></a>
+            </p>
+        </div>
+        <div class="w-6/12 flex justify-center">
+            <img src="{% static 'images/home.png' %}" alt="appreciation image" width="600">
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% load static %}
+{% include 'partials/layout.html' %}
+
+{% block title %} <title>Blogm | Welcome</title> {% endblock %}
+
+{% block content %}
+    {% include 'partials/menuBlog.html' %}
+
+    <div class="w-screen py-48 px-60 grid grid-cols-3 ">
+    {% for post in posts %}
+        <a href="{% url 'post' post.id %}" class="col-span-2 p-8 grid grid-cols-3 h-auto border-2 border-zinc-100 rounded-lg">
+
+                <div class="flex items-center justify-center">
+                    <img src="{{ post.image.url}}" alt="{{post.title}}"  width="90">
+                </div>
+                <div class="col-start-2 col-end-4">
+                    <p class="font-bold">{{ post.user.username }}</p>
+                    <h3 class="font-bold text-3xl text-zinc-800">{{ post.title }}</h3>
+                    <p class="text-zinc-600 my-2">{{ post.content | truncatechars:30 }}</p>
+                    <div class="flex justify-between items-center">
+                        <p class="text-zinc-400 my-2">{{ post.created }}</p>
+                        <p class="0"><i class="bi bi-chat"></i></p>
+                    </div>
+                </div>
+        </a>
+
+    {% empty %}
+        <h1>We dont have posts for show you</h1>
+    {% endfor %}
+                    <div>
+                        <p class="text-center text-2xl font-bold">Anuncios</p>
+                        <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5434994494846001"
+                 data-ad-slot="2991877309"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+{% endblock content %}

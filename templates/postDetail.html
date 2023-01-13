@@ -1,0 +1,51 @@
+{% load static %}
+{% include 'partials/layout.html' %}
+
+{% block title %} <title>Blogm | Post</title> {% endblock %}
+
+{% block content %}
+    {% include 'partials/menuBlog.html' %}
+
+    <div class="w-full  py-48 px-60 grid grid-cols-3">
+        <div class="col-span-2 p-8  h-auto border-2 border-zinc-100 rounded-lg">
+            <img src="{{ post.image.url}}" alt="{{post.title}}" class="w-full h-48" >
+            <div class="p-8">
+                <div class="flex justify-between items-center">
+                    <p class="font-bold"><span class="text-sky-600">User Created Post: </span>{{ post.user.username }}</p>
+                    <p class="text-zinc-400 my-2">{{ post.created }}</p>
+                </div>
+                <h3 class="font-bold text-3xl text-zinc-800 my-4">{{ post.title }}</h3>
+                <p class="text-zinc-600 my-2">{{ post.content }}</p>
+            </div>
+
+            <div class="my-6 p-8">
+                <h1 class="text-3xl font-bold">Comments</h1>
+                <div class="my-6">
+                    <h3 class="text-sky-600 font-bold">Create tour comment</h3>
+
+                    <form action="">
+                        <textarea name="content" id="content" class="my-4 w-full outline-none rounded-lg p-6" rows="10"></textarea>
+
+                        <button class="my-4 bg-sky-500 rounded-md font-bold text-white py-2 px-4">Add Comment</button>
+                    </form>
+                </div>
+
+                <div>
+
+                </div>
+            </div>
+        </div>
+                    <div>
+                        <p class="text-center text-2xl font-bold">Anuncios</p>
+                        <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5434994494846001"
+                 data-ad-slot="2991877309"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+{% endblock content %}

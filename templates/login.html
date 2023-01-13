@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'partials/layout.html' %}
+
+{% block title %} <title>Blogm | Login</title> {% endblock %}
+
+{% block content %}
+    <section class="w-full h-screen grid grid-cols-2">
+        <div class="bg-green-500 flex justify-center flex-col items-center">
+            <h2 class="text-3xl font-bold">You don't have an account ?</h2>
+            <a href="{% url 'register' %}"><button class="bg-transparent py-2 px-6 text-white font-bold my-4 border-2 border-white rounded-md hover:bg-white hover:text-black">Register</button></a>
+        </div>
+
+    <div class="bg-white grid place-items-center">
+        <form method="POST" class="form-generic">
+            <h1 class="text-4xl font-bold text-center">Log in</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="py-2
+             font-bold px-4 bg-green-400 text-lg w-full my-8 rounded-lg hover:bg-green-500">Sign in</button>
+        </form>
+    </div>
+    </section>
+{% endblock content %}
